@@ -1,0 +1,6 @@
+
+9월 01, 2022 09:38:12.19 NEW SESSION
+9월 01, 2022 09:38:12.19 [1412:1012:0901/093812.016:ERROR:device_event_log_impl.cc(214)] [09:38:12.016] USB: usb_service_win.cc:415 Could not read device interface GUIDs: ������ ������ ã�� �� �����ϴ�. (0x2)
+9월 01, 2022 09:38:12.20 [1412:1012:0901/093812.018:ERROR:device_event_log_impl.cc(214)] [09:38:12.018] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: �ý��ۿ� ������ ��ġ�� �۵����� �ʽ��ϴ�. (0x1F)
+9월 01, 2022 09:38:12.20 [1412:1012:0901/093812.018:ERROR:device_event_log_impl.cc(214)] [09:38:12.018] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: �ý��ۿ� ������ ��ġ�� �۵����� �ʽ��ϴ�. (0x1F)
+9월 01, 2022 09:38:12.21 [1412:1012:0901/093812.018:ERROR:device_event_log_impl.cc(214)] [09:38:12.018] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: �ý��ۿ� ������ ��ġ�� �۵����� �ʽ��ϴ�. (0x1F)
