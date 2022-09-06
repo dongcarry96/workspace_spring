@@ -14,3 +14,9 @@
 9월 05, 2022 10:06:02.941 [6660:13496:0905/100602.940:ERROR:device_event_log_impl.cc(214)] [10:06:02.940] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: �ý��ۿ� ������ ��ġ�� �۵����� �ʽ��ϴ�. (0x1F)
 9월 05, 2022 10:06:02.941 [6660:13496:0905/100602.940:ERROR:device_event_log_impl.cc(214)] [10:06:02.940] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: �ý��ۿ� ������ ��ġ�� �۵����� �ʽ��ϴ�. (0x1F)
 9월 05, 2022 10:06:02.941 [6660:13496:0905/100602.941:ERROR:device_event_log_impl.cc(214)] [10:06:02.940] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: �ý��ۿ� ������ ��ġ�� �۵����� �ʽ��ϴ�. (0x1F)
+
+9월 06, 2022 14:46:38.333 NEW SESSION
+9월 06, 2022 14:46:38.334 [10940:23484:0906/144638.331:ERROR:device_event_log_impl.cc(214)] [14:46:38.331] USB: usb_service_win.cc:415 Could not read device interface GUIDs: ������ ������ ã�� �� �����ϴ�. (0x2)
+9월 06, 2022 14:46:38.334 [10940:23484:0906/144638.333:ERROR:device_event_log_impl.cc(214)] [14:46:38.333] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: �ý��ۿ� ������ ��ġ�� �۵����� �ʽ��ϴ�. (0x1F)
+9월 06, 2022 14:46:38.334 [10940:23484:0906/144638.333:ERROR:device_event_log_impl.cc(214)] [14:46:38.333] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: �ý��ۿ� ������ ��ġ�� �۵����� �ʽ��ϴ�. (0x1F)
+9월 06, 2022 14:46:38.335 [10940:23484:0906/144638.333:ERROR:device_event_log_impl.cc(214)] [14:46:38.333] USB: usb_device_handle_win.cc:1048 Failed to read descriptor from node connection: �ý��ۿ� ������ ��ġ�� �۵����� �ʽ��ϴ�. (0x1F)
