@@ -1,5 +1,6 @@
 package com.vo;
-
+// VO패턴은 로우를 담는게 아니라 컬럼을 담는다. 라고 생각하자 - 1건만 담을 수 있다.
+// DeptVO[] - 객체 배열이면 n개 로우를 담을 수 있다.
 public class DeptVO {
    private int deptno=5;
    private String dname;

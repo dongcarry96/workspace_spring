@@ -6,7 +6,7 @@
 		 선언은 xml에서 하고 사용은 자바코드에서 한다.
 	 -->
 	<bean id="myCar" class="com.spring4.mvc.Sonata"/>
-	<bean id="herCar" class="com.spring4.mvc.Sonata" scope="prototype" >
+	<bean id="herCar" class="com.spring4.mvc.Sonata" scope="singleton" >
 		<constructor-arg index="0" type="int" value="30"/>
 		<constructor-arg index="1" type="java.lang.String" value="2023년형소나타"/>
 		<constructor-arg index="2" type="java.lang.String" value="검정색"/>

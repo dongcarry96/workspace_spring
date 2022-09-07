@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
  * Spring Boot - annotation
  * 
  */
-
+// 스프링
 @Configuration
 public class AppContext {
 	@Bean

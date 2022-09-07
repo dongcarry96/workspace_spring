@@ -6,7 +6,7 @@ import com.vo.MemberVO;
 
 public class AuthLogic {
 	Logger logger = Logger.getLogger(AuthLogic.class);
-	// AuthLogic 클래스는 AuthDao클래스와 의존관계가 있다
+	// AuthLogic 클래스는 AuthDao클래스와 의존관계가 있다.
 	private AuthDao authDao = null;
 	public void setAuthDao(AuthDao authDao) {
 		this.authDao = authDao;
