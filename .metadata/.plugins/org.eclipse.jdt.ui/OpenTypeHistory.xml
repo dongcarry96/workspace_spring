@@ -2,4 +2,6 @@
 <typeInfoHistroy>
     <typeInfo handle="=dev_spring4/C:\/git\/workspace_spring\/dev_spring4\/src\/main\/webapp\/WEB-INF\/lib\/spring-webmvc-4.3.30.RELEASE.jar&lt;org.springframework.web.servlet.mvc.multiaction(MultiActionController.class[MultiActionController" modifiers="1048609" timestamp="1662082432869"/>
     <typeInfo handle="=dev_spring4/C:\/git\/workspace_spring\/dev_spring4\/src\/main\/webapp\/WEB-INF\/lib\/spring-webmvc-4.3.30.RELEASE.jar&lt;org.springframework.web.servlet.mvc(AbstractController.class[AbstractController" modifiers="1057" timestamp="1662082432869"/>
+    <typeInfo handle="=dev_spring4/src\/main\/java&lt;com.di{Duck.java[Duck" modifiers="1025" timestamp="1662603415356"/>
+    <typeInfo handle="=dev_spring4/src\/main\/java&lt;com.di{HelloBean.java[HelloBean" modifiers="513" timestamp="1662604475232"/>
 </typeInfoHistroy>

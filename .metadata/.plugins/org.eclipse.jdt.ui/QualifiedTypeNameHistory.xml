@@ -1,20 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
     <fullyQualifiedTypeName name="com.spring4.mvc.AuthController"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.AbstractController"/>
     <fullyQualifiedTypeName name="java.lang.Override"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
-    <fullyQualifiedTypeName name="org.springframework.context.ApplicationContext"/>
     <fullyQualifiedTypeName name="org.springframework.context.support.ClassPathXmlApplicationContext"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.BeanFactory"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.multiaction.MultiActionController"/>
-    <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
     <fullyQualifiedTypeName name="java.lang.Object"/>
+    <fullyQualifiedTypeName name="com.sun.org.slf4j.internal.Logger"/>
     <fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
-    <fullyQualifiedTypeName name="com.sun.tools.javac.util.List"/>
-    <fullyQualifiedTypeName name="java.awt.List"/>
+    <fullyQualifiedTypeName name="org.apache.log4j.spi.LoggerFactory"/>
+    <fullyQualifiedTypeName name="lombok.Getter"/>
+    <fullyQualifiedTypeName name="lombok.Setter"/>
+    <fullyQualifiedTypeName name="org.slf4j.Logger"/>
+    <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
+    <fullyQualifiedTypeName name="com.example.demo.logic.TestLogic"/>
+    <fullyQualifiedTypeName name="org.springframework.context.ApplicationContext"/>
+    <fullyQualifiedTypeName name="com.example.demo.Controller.TestController"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+    <fullyQualifiedTypeName name="config.ControllerConfig2"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="java.awt.List"/>
+    <fullyQualifiedTypeName name="com.sun.tools.javac.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.mybatis.spring.SqlSessionTemplate"/>
 </qualifiedTypeNameHistroy>

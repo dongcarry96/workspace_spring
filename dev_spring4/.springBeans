@@ -10,8 +10,11 @@
 		<config>src/main/java/com/spring4/mvc/sonataBean.xml</config>
 		<config>src/main/webapp/WEB-INF/spring-data.xml</config>
 		<config>src/main/webapp/WEB-INF/spring-service.xml</config>
+		<config>src/main/java/com/di/duckBean.xml</config>
+		<config>src/main/java/com/di/helloBean.xml</config>
 	</configs>
 	<autoconfigs>
+		<config>src/main/webapp/WEB-INF/spring-servlet.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>

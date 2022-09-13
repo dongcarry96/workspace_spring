@@ -15,6 +15,25 @@
 			</list>
 		</property>
 	</bean>
+	<bean name="/di/insaMap.sp" class="com.di.MapController">
+	<!-- property의 이름은 setter메소드이름과 반드시(꼭) 같아야 한다. -->
+		<property name="insaMsg">
+			<map>
+				<entry>
+					<key><value>one</value></key>
+					<value>안녕!</value>
+				</entry>
+				<entry>
+					<key><value>two</value></key>
+					<value>좋은아침입니다</value>
+				</entry>
+				<entry>
+					<key><value>three</value></key>
+					<value>굿밤</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
 	<bean id="url-mapping"
 		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">

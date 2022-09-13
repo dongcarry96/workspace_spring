@@ -26,6 +26,8 @@ public class AuthDao {
 		pMap.put("mem_pw", "123");
 		// selectOne(One은 Object이다. -오직 1건만 가능하다.)은 조회건 수가 반드시 한건이어야 한다.
 		// Too Many...
+		// 혹시 아래부분에 컴파일 에러이면 ibatis관련 모듈 의존관계에 있어서
+		// mybatis-3.5.10.jar도 빌드패스에 추가할것 mybatis-spring-1.3.3의존관계
 		 memVO = sqlSessionTemplate.selectOne("login", pMap); // selectOne은 리턴타입이 Object임
 		if (memVO != null) {
 //			logger.info(memVO.getMem_name());
