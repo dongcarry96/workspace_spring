@@ -5,7 +5,32 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2022-09-08T07:00:00Z</updated>
+  <updated>2022-09-13T07:00:00Z</updated>
+  <entry>
+    <title>This Week in Spring - September 13th, 2022</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/09/13/this-week-in-spring-september-13th-2022" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2022-09-13:4903</id>
+    <updated>2022-09-13T07:00:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! We&amp;rsquo;ve got a lot of good stuff to get to so let&amp;rsquo;s dive right into it! &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/08/a-bootiful-podcast-hashicorp-s-rosemary-wang-on-securing-the-intersection-of-apps-and-ops-with-hashicorp-vault"&gt;A Bootiful Podcast: Hashicorp&amp;rsquo;s Rosemary Wang on securing the intersection of apps and ops with Hashicorp Vault&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;a nice video by my colleague Dan Vega: &lt;a href="https://www.youtube.com/watch?v=KYNR5js2cXE"&gt;Spring Security JWT&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;I also loved Dan&amp;rsquo;s video on &lt;a href="https://www.youtube.com/watch?v=s4X4SJv2RrU"&gt;Spring Security without the &lt;code&gt;WebSecurityConfigurerAdapter&lt;/code&gt; &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/710091966/0/baeldung~Dispatching-Queries-in-Axon-Framework/"&gt;Dispatching Queries in Axon Framework&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/710253652/0/baeldung~Guide-to-Find-the-Java-class-Version"&gt;Guide to Find the Java .class Version&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/09/07/spring-cloud-2021-0-4-codename-jubilee-has-been-released"&gt;Spring Cloud 2021.0.4 (codename Jubilee) Has Been Released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/710091964/0/baeldung~Static-Fields-and-Garbage-Collection"&gt;Static Fields and Garbage Collection&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://kubernetes.io/blog/2022/09/12/k8s-cve-feed-alpha/"&gt;Blog: Announcing the Auto-refreshing Official Kubernetes CVE Feed&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://kubernetes.io/blog/2022/09/09/kms-v2-improvements/"&gt;Blog: Kubernetes 1.25: KMS V2 Improvements&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://kubernetes.io/blog/2022/09/07/iptables-chains-not-api/"&gt;Blog: Kubernetes’s IPTables Chains Are Not API&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;this is an interesting post looking at how to &lt;a href="https://medium.com/@salithachathuranga94/unit-and-integration-testing-in-spring-boot-micro-service-901fc53b0dff"&gt;use JUnit with Spring Boot&lt;/a&gt;. The only thing I didn&amp;rsquo;t quite understand is why the author declares Mockito explicitly. I&amp;rsquo;m &lt;em&gt;pretty&lt;/em&gt; sure it&amp;rsquo;s brought in transitively in &lt;code&gt;spring-boot-starter-test&lt;/code&gt;, but either way: good post!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>A Bootiful Podcast: Hashicorp's Rosemary Wang on securing the intersection of apps and ops with Hashicorp Vault</title>
     <link rel="alternate" href="https://spring.io/blog/2022/09/08/a-bootiful-podcast-hashicorp-s-rosemary-wang-on-securing-the-intersection-of-apps-and-ops-with-hashicorp-vault" />
@@ -911,41 +936,6 @@ class RequestHashingGatewayFilterFactoryTest {&#xD;
 &lt;p&gt;&lt;a href="https://github.com/spring-projects-experimental/spring-pulsar"&gt;Spring for Apache Pulsar GitHub repository&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://docs.spring.io/spring-pulsar/docs/current-SNAPSHOT/reference/html/"&gt;Reference Documentation&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/spring-projects-experimental/spring-pulsar/tree/main/spring-pulsar-sample-apps"&gt;Sample Applications&lt;/a&gt;&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - August 16th, 2022</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/08/16/this-week-in-spring-august-16th-2022" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2022-08-16:4880</id>
-    <updated>2022-08-16T07:00:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another wonder-filled installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! It&amp;rsquo;s been a week! Sometimes I can scarcely believe it myself. And can you believe it&amp;rsquo;s August 16th already?? My daughter&amp;rsquo;s starting school this week! We&amp;rsquo;re in the northern hemisphere, and Summer break is already over and done with for her. There&amp;rsquo;s still another month and some change of summer, officially, though. So, I hope you all are doing whatever you can to maximize your enjoyment of it before the darker and colder months arrive. &lt;/p&gt;
-&lt;p&gt;Twitter helps me pass the time. I&amp;rsquo;ve been working on some code and wanted to use Twitter&amp;rsquo;s OAuth 2 and PKCE support in the application but couldn&amp;rsquo;t quite make it work. So I pinged my pal (everybody&amp;rsquo;s pal, really!) and Spring Security &lt;a href="https://twitter.com/rob_winch"&gt;lead Rob Winch (&lt;code&gt;@rob_winch&lt;/code&gt;)&lt;/a&gt; for some clues, and he did me one better: he put together a sample that &lt;a href="https://github.com/rwinch/spring-security-sample/tree/twitter-oauth"&gt;demonstrates it all in action&lt;/a&gt;! Thanks, Rob! I love Spring Security and a huge reason is because of the amazing and helpful and indulgent team behind it. And I love Twitter (most of the time, anyway). &lt;/p&gt;
-&lt;p&gt;It&amp;rsquo;s been a busy week on Twitter for me! On it, &lt;a href="https://twitter.com/starbuxman/status/1559340838227812352?s=21&amp;t=3Yx_5Cek8syZnby6q58Fjw"&gt;I asked what people are using for their observability stacks on Kubernetes&lt;/a&gt;, figured out that &lt;a href="https://twitter.com/starbuxman/status/1559090990182322177?s=21&amp;t=3Yx_5Cek8syZnby6q58Fjw"&gt;for my 25+ years in writing software, I don&amp;rsquo;t know &lt;em&gt;anything&lt;/em&gt;&lt;/a&gt;, and so much more! And here, you silly reader you, you&amp;rsquo;ve probably been happy being all productive in your off-Twitter life, haven&amp;rsquo;t ya? Well, let me tell you: you&amp;rsquo;re missing out!&lt;/p&gt;
-&lt;p&gt;Or, and I can&amp;rsquo;t stress this enough, you&amp;rsquo;re &lt;em&gt;probably&lt;/em&gt; not. That&amp;rsquo;s probably true, too. So, carry on.&lt;/p&gt;
-&lt;p&gt;And we &lt;em&gt;shall&lt;/em&gt; carry on, too. After all, we&amp;rsquo;ve got one heckuva roundup this week! So, without further ado&amp;hellip;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;the new release of Gradle Enterprise, 2022.3, is packed with &lt;a href="https://gradle.com/enterprise/releases/2022.3/"&gt;some cool features&lt;/a&gt;. Congrats, Gradle team!&lt;/li&gt;
-  &lt;li&gt;In last week&amp;rsquo;s episode of the podcast, I talked with my friend, &lt;a href="https://spring.io/blog/2022/08/11/a-bootiful-podcast-the-good-dr-venkat-subramaniam"&gt;the good Dr. Venkat Subramaniam&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://skywalking.apache.org/docs/main/latest/en/setup/backend/spring-sleuth-setup/"&gt;Apache SkyWalking looks to be an interesting, end-to-end observability stack, and they have a good Spring integration story, as well&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://kubernetes.io/blog/2022/08/11/enhancing-kubernetes-one-kep-at-a-time/"&gt;Blog: Enhancing Kubernetes one KEP at a Time&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://medium.com/@naveentn/dependency-injection-with-spring-boot-annotations-c743806d7326"&gt;Dependency Injection with Spring Boot annotations&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://github.com/readme/featured/java-programming-language"&gt;Don’t call it a comeback: Why Java is still champ&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://medium.com/shoutloudz/elastic-search-with-spring-boot-357bb0f57972"&gt;Elastic Search with Spring Boot&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/706318180/0/baeldung~Executing-Multiple-Commands-in-Docker-Compose"&gt;Executing Multiple Commands in Docker Compose&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://swapnilagarwal2001.medium.com/introduction-of-jboss-drool-in-spring-boot-d88c7b5b8903"&gt;Introduction of JBoss Drools in Spring Boot&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Check out the exciting new work in the JHipster Native generator (&lt;code&gt;jhipster/generator-jhipster-native&lt;/code&gt;) that makes building a &lt;a href="https://github.com/jhipster/generator-jhipster-native/releases/tag/v1.3.0"&gt;Spring Native- and GraalVM-powered JHipster application a breeze: v1.3.0&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://medium.com/shoutloudz/spring-boot-what-is-multi-request-mapping-5963baae395b"&gt;Spring Boot: What is Multi Request Mapping&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/08/15/spring-cloud-dataflow-2-9-5-released"&gt;Spring Cloud Dataflow 2.9.5 Released&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://feeds.feedblitz.com/~/706480312/0/baeldung~Spring-Data-MongoDB-Configure-Connection"&gt;Spring Data MongoDB – Configure Connection&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/08/12/spring-tools-4-15-3-released"&gt;Spring Tools 4.15.3 released&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2022/08/10/spring-web-flow-3-0-m1-released"&gt;Spring Web Flow 3.0 M1 Released&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;This is an oldie-but-a-goodie in that it&amp;rsquo;s a talk I did more than half a decade ago, but that showcased a ton of things that were then common at the time. If you&amp;rsquo;re among the hordes of folks who&amp;rsquo;ve come to the Spring Boot community recently, this &lt;em&gt;might&lt;/em&gt; be interesting. There are two dimensions of interest to me here: how much things have improved and how much some things stay the same. Enjoy! &lt;a href="https://www.youtube.com/watch?v=kGDcroKVECk"&gt;&lt;em&gt;The Bootiful Application&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://blogs.vmware.com/opensource/2022/08/11/vmwares-inspirational-women-in-open-source-spotlight-on-olga-maciaszek-sharma/"&gt;VMware&amp;rsquo;s Inspirational Women in Open Source: Spotlight on Olga Maciaszek-Sharma, who is a legendary part of the Spring Cloud team&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>
