@@ -5,7 +5,104 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2022-09-13T07:00:00Z</updated>
+  <updated>2022-09-16T09:00:00Z</updated>
+  <entry>
+    <title>Spring Tools 4.16.0 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/09/16/spring-tools-4-16-0-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Martin Lippert</name>
+    </author>
+    <id>tag:spring.io,2022-09-16:4908</id>
+    <updated>2022-09-16T09:00:00Z</updated>
+    <content type="html">&lt;p&gt;Dear Spring Community,&lt;/p&gt;
+&lt;p&gt;I am happy to announce the 4.16.0 release of the Spring Tools 4 for Eclipse, Visual Studio Code, and Theia.&lt;/p&gt;&lt;h4&gt;&lt;a href="#major-changes-to-the-spring-tools-4-for-eclipse-distribution" class="anchor" name="major-changes-to-the-spring-tools-4-for-eclipse-distribution"&gt;&lt;/a&gt;major changes to the Spring Tools 4 for Eclipse distribution&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;updated to Eclipse 2022-09 release (&lt;a href="https://www.eclipse.org/eclipseide/2022-09/"&gt;new and noteworthy&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;new distribution build for Linux on ARM included now (experimental) - &lt;a href="https://github.com/spring-projects/sts4/wiki/Previous-Versions"&gt;downloads are here&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;m2e 2.0.5 release included in distribution builds for Eclipse&lt;/li&gt;
+&lt;/ul&gt;&lt;h4&gt;&lt;a href="#important-note-for-upgrading-from-a-previous-installation-on-eclipse" class="anchor" name="important-note-for-upgrading-from-a-previous-installation-on-eclipse"&gt;&lt;/a&gt;important note for upgrading from a previous installation on Eclipse&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Due to the major update to m2e 2.0 that comes with the Eclipse 2022-09 release, several additional third-party m2e connector extensions that the Spring Tools 4 for Eclipse distribution had installed in the past are no longer compatible. This prevents the automatic update of installations of Spring Tools prior to 4.16.0 to the new release. There are two options how to mitigate this:&lt;/li&gt;
+  &lt;li&gt;start with a fresh install of Spring Tools 4.16.0 for Eclipse&lt;/li&gt;
+  &lt;li&gt;go to the &lt;code&gt;Preferences -&amp;gt; Installation Details&lt;/code&gt; and uninstall the following features via the &lt;code&gt;Uninstall&lt;/code&gt; button, then restart the IDE, do a &lt;code&gt;Check for Updates&lt;/code&gt;, and do the upgrade.
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code&gt;Maven Integration for Eclipse JDT Annotation Processor Toolkit&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;m2e connector for mavenarchiver pom properties&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code&gt;m2e connector for build-helper-maven-plugin&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Eclipse 2022-09 comes with ANSI coloring for the console view built-in, so we don&amp;rsquo;t need to third-party extension &lt;code&gt;Ansi Console&lt;/code&gt; anymore. If you upgrade an existing installation, please uninstall this extension prior or after upgrading Spring Tools 4 for Eclipse.&lt;/li&gt;
+&lt;/ul&gt;&lt;h4&gt;&lt;a href="#fixes-and-improvements" class="anchor" name="fixes-and-improvements"&gt;&lt;/a&gt;fixes and improvements&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;(Spring Boot)&lt;/em&gt; fixed: Workspace symbol null on custom annotations (&lt;a href="https://github.com/spring-projects/sts4/issues/818"&gt;#818&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(Spring Boot)&lt;/em&gt; fixed: organize imports causes communication issues with the language server (&lt;a href="https://github.com/spring-projects/sts4/issues/806"&gt;#806&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(Spring Boot)&lt;/em&gt; enhancement: Quick fix action to refactor field injection to constructor injection (&lt;a href="https://github.com/spring-projects/sts4/issues/522"&gt;#522&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(Spring Boot)&lt;/em&gt; fixed: Workspace symbol null on custom annotations (&lt;a href="https://github.com/spring-projects/sts4/issues/818"&gt;#818&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(Eclipse)&lt;/em&gt; enhancement: adapt boot launch support to new platform-enabled ansi console coloring support (&lt;a href="https://github.com/spring-projects/sts4/issues/823"&gt;#823&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(Eclipse)&lt;/em&gt; fixed: cleanup/remove more entries from Error Log (&lt;a href="https://github.com/spring-projects/sts4/issues/802"&gt;#802&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(Eclipse)&lt;/em&gt; fixed: switch live hovers in Eclipse to direct-connect after launch (&lt;a href="https://github.com/spring-projects/sts4/issues/832"&gt;#832&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(Eclipse)&lt;/em&gt; fixed: add switch in boot launch config to enable/disable automatic live hover connect (&lt;a href="https://github.com/spring-projects/sts4/issues/843"&gt;#843&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(Eclipse)&lt;/em&gt; fixed: live hover auto-connect on launch should check for actuators (&lt;a href="https://github.com/spring-projects/sts4/issues/842"&gt;#842&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(Eclipse)&lt;/em&gt; enhancement: spring tool suite linux arm distribution (&lt;a href="https://github.com/spring-projects/sts4/issues/841"&gt;#841&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(VSCode)&lt;/em&gt; fixed: Extension never activates, throwing error &amp;ldquo;Header must provide a Content-Length property&amp;rdquo; (&lt;a href="https://github.com/spring-projects/sts4/issues/811"&gt;#811&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(Concourse)&lt;/em&gt; fixed: Concourse extension doesn&amp;rsquo;t know about &amp;ldquo;check_every: never&amp;rdquo; for a resource (&lt;a href="https://github.com/spring-projects/sts4/issues/816"&gt;#816&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(Concourse)&lt;/em&gt; fixed: Concourse extension doesn&amp;rsquo;t know about &amp;ldquo;depth&amp;rdquo; for a semver resource (&lt;a href="https://github.com/spring-projects/sts4/issues/830"&gt;#830&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(Concourse)&lt;/em&gt; fixed: Concourse extension doesn&amp;rsquo;t recognize URL for &amp;ldquo;registry_mirror&amp;rdquo; with a docker-image resource (&lt;a href="https://github.com/spring-projects/sts4/issues/831"&gt;#831&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(Concourse)&lt;/em&gt; fixed: vscode-concourse: support both .yml and .yaml files (&lt;a href="https://github.com/spring-projects/sts4/issues/838"&gt;#838&lt;/a&gt;) - contributed by &lt;a href="https://github.com/bmalehorn"&gt;bmalehorn&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;(Concourse)&lt;/em&gt; fixed: vscode-concourse: add language icon for pipelines &amp;amp; tasks (&lt;a href="https://github.com/spring-projects/sts4/issues/839"&gt;#839&lt;/a&gt;) - contributed by &lt;a href="https://github.com/bmalehorn"&gt;bmalehorn&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To download the distribution for Eclipse and find links to the marketplace entries for Visual Studio Code and Theia, please go visit:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Spring Tools 4: &lt;a href="https://spring.io/tools/"&gt;https://spring.io/tools/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Detailed changes can be found here: &lt;a href="https://github.com/spring-projects/sts4/wiki/Changelog#2022-09-16-4160-release-incl-language-servers-version-1390"&gt;https://github.com/spring-projects/sts4/wiki/Changelog#2022-09-16-4160-release-incl-language-servers-version-1390&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Spring Tools 4.16.1 is scheduled to be released in late October 2022.&lt;/p&gt;
+&lt;p&gt;Enjoy!&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>A Bootiful Podcast: big data legend, former Pivot, and friend to the Spring community, Tim Spann</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/09/15/a-bootiful-podcast-big-data-legend-former-pivot-and-friend-to-the-spring-community-tim-spann" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2022-09-15:4906</id>
+    <updated>2022-09-15T16:00:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! In this installment, &lt;a href="https://twitter.com/starbuxman"&gt;Josh Long (@starbuxman)&lt;/a&gt; talks to big data legend, former Pivot, and friend to the Spring community, &lt;a href="https://twitter.com/PaaSDev"&gt;Tim Spann (@PaaSDev)&lt;/a&gt;, about big data, StreamNative, and Apache Pulsar, and Spring for Apache Pulsar. Get your notebooks ready for this one, class! &lt;/p&gt;
+&lt;iframe title="Big data legend, former Pivot, and friend to the Spring community, Tim Spann " allowtransparency="true" height="150" width="100%" style="border: none; min-width: min(100%, 430px);" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/player-v2/?i=fkubq-12c5465-pb&amp;from=pb6admin&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Arial&amp;skin=1&amp;font-color=&amp;logo_link=episode_page&amp;btn-skin=7"&gt;&lt;/iframe&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Framework 6.0.0-M6 and 5.3.23 available now</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/09/15/spring-framework-6-0-0-m6-and-5-3-23-available-now" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Stéphane Nicoll</name>
+    </author>
+    <id>tag:spring.io,2022-09-15:4905</id>
+    <updated>2022-09-15T09:05:00Z</updated>
+    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I am pleased to announce that Spring Framework &lt;code&gt;6.0.0-M6&lt;/code&gt; and &lt;code&gt;5.3.23&lt;/code&gt; are available now.&lt;/p&gt;
+&lt;p&gt;Spring Framework &lt;code&gt;5.3.23&lt;/code&gt; includes &lt;a href="https://github.com/spring-projects/spring-framework/releases/tag/v5.3.23"&gt;32 fixes and improvements&lt;/a&gt; and is a recommended upgrade for all Spring production scenarios.&lt;/p&gt;
+&lt;p&gt;Spring Framework &lt;code&gt;6.0.0-M6&lt;/code&gt; includes &lt;a href="https://github.com/spring-projects/spring-framework/releases/tag/v6.0.0-M6"&gt;123 additional fixes and improvements&lt;/a&gt; specific to the 6.0 branch. This milestone wraps up most of our AOT efforts, in preparation for our release candidate phase. Stay tuned for the announcement of Spring Boot 3.0.0-M5 next week!&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://projects.spring.io/spring-framework/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-framework/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-framework/docs/5.3.23/reference/html/"&gt;Documentation&lt;/a&gt;&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Cloud Dataflow 2.9.6 Released</title>
+    <link rel="alternate" href="https://spring.io/blog/2022/09/14/spring-cloud-dataflow-2-9-6-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Chris Bono</name>
+    </author>
+    <id>tag:spring.io,2022-09-14:4904</id>
+    <updated>2022-09-15T02:00:00Z</updated>
+    <content type="html">&lt;p&gt;On behalf of the team and everyone who has contributed, I’m happy to announce that Spring Cloud Dataflow &lt;code&gt;2.9.6&lt;/code&gt; has been released and is now available from Maven Central.&lt;/p&gt;
+&lt;p&gt;This release updates to Postgres SQL driver &lt;code&gt;42.2.26&lt;/code&gt; to address &lt;a href="https://github.com/advisories/GHSA-r38f-c4h4-hqq2"&gt;CVE-2022-31197&lt;/a&gt;. See the &lt;a href="https://github.com/spring-cloud/spring-cloud-dataflow/releases/tag/v2.9.6"&gt;release notes&lt;/a&gt; for more information.&lt;/p&gt;&lt;h2&gt;&lt;a href="#stay-in-touch-hellip" class="anchor" name="stay-in-touch-hellip"&gt;&lt;/a&gt;Stay in touch&amp;hellip;&lt;/h2&gt;
+&lt;p&gt;As always, we welcome feedback and contributions, so please reach out to us on &lt;a href="https://stackoverflow.com/questions/tagged/spring-cloud-dataflow"&gt;Stackoverflow&lt;/a&gt; or &lt;a href="https://github.com/spring-cloud/spring-cloud-dataflow/issues"&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>This Week in Spring - September 13th, 2022</title>
     <link rel="alternate" href="https://spring.io/blog/2022/09/13/this-week-in-spring-september-13th-2022" />
@@ -795,147 +892,6 @@ class RequestHashingGatewayFilterFactoryTest {&#xD;
 &lt;p&gt;This release includes &lt;a href="https://github.com/spring-projects/spring-boot/releases/tag/v2.6.11"&gt;40 bug fixes, documentation improvements, and dependency upgrades&lt;/a&gt;. Thanks to all those who have contributed with issue reports and pull requests.&lt;/p&gt;&lt;h3&gt;&lt;a href="#how-can-you-help" class="anchor" name="how-can-you-help"&gt;&lt;/a&gt;How can you help?&lt;/h3&gt;
 &lt;p&gt;If you&amp;rsquo;re interested in helping out, check out the &lt;a href="https://github.com/spring-projects/spring-boot/labels/status%3A%20ideal-for-contribution"&gt;&amp;ldquo;ideal for contribution&amp;rdquo; tag&lt;/a&gt; in the issue repository. If you have general questions, please ask on &lt;a href="https://stackoverflow.com"&gt;stackoverflow.com&lt;/a&gt; using the &lt;a href="https://stackoverflow.com/tags/spring-boot"&gt;&lt;code&gt;spring-boot&lt;/code&gt; tag&lt;/a&gt; or chat with the community on &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://spring.io/projects/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-boot/docs/2.6.11/reference/html"&gt;Documentation&lt;/a&gt; | &lt;a href="https://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Authorization Server 1.0.0-M1 available now</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/08/17/spring-authorization-server-1-0-0-m1-available-now" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Joe Grandja</name>
-    </author>
-    <id>tag:spring.io,2022-08-17:4885</id>
-    <updated>2022-08-17T09:00:00Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;On behalf of the team and everyone who has contributed, it is my pleasure to announce the general availability of Spring Authorization Server 1.0.0-M1.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;You can download it from &lt;a href="https://repo.spring.io/milestone"&gt;repo.spring.io&lt;/a&gt; milestone repository by using the module coordinates:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="listingblock"&gt;
-&lt;div class="content"&gt;
-&lt;pre class="prettyprint highlight"&gt;&lt;code&gt;implementation 'org.springframework.security:spring-security-oauth2-authorization-server:1.0.0-M1'&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;See the &lt;a href="https://github.com/spring-projects/spring-authorization-server/releases/tag/1.0.0-M1"&gt;release notes&lt;/a&gt; for complete details.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;To get started using Spring Authorization Server, see the &lt;a href="https://docs.spring.io/spring-authorization-server/docs/current/reference/html/getting-started.html"&gt;Getting Started&lt;/a&gt; chapter of the reference documentation and the &lt;a href="https://github.com/spring-projects/spring-authorization-server/tree/main/samples"&gt;samples&lt;/a&gt; to become familiar with setup and configuration.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;We would love to gather your feedback as we strive to improve and build upon this release.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="https://spring.io/projects/spring-authorization-server"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-authorization-server/issues"&gt;GitHub Issues&lt;/a&gt; | &lt;a href="https://app.zenhub.com/workspaces/authorization-server-5e8f3182b5e8f5841bfc4902/board?repos=248032165"&gt;ZenHub Board&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Authorization Server 0.4.0-M1 available now</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/08/17/spring-authorization-server-0-4-0-m1-available-now" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Joe Grandja</name>
-    </author>
-    <id>tag:spring.io,2022-08-17:4884</id>
-    <updated>2022-08-17T09:00:00Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;On behalf of the team and everyone who has contributed, it is my pleasure to announce the general availability of Spring Authorization Server 0.4.0-M1.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;You can download it from &lt;a href="https://repo.spring.io/milestone"&gt;repo.spring.io&lt;/a&gt; milestone repository by using the module coordinates:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="listingblock"&gt;
-&lt;div class="content"&gt;
-&lt;pre class="prettyprint highlight"&gt;&lt;code&gt;implementation 'org.springframework.security:spring-security-oauth2-authorization-server:0.4.0-M1'&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;See the &lt;a href="https://github.com/spring-projects/spring-authorization-server/releases/tag/0.4.0-M1"&gt;release notes&lt;/a&gt; for complete details.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;To get started using Spring Authorization Server, see the &lt;a href="https://docs.spring.io/spring-authorization-server/docs/current/reference/html/getting-started.html"&gt;Getting Started&lt;/a&gt; chapter of the reference documentation and the &lt;a href="https://github.com/spring-projects/spring-authorization-server/tree/0.4.x/samples"&gt;samples&lt;/a&gt; to become familiar with setup and configuration.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;We would love to gather your feedback as we strive to improve and build upon this release.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="https://spring.io/projects/spring-authorization-server"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-authorization-server/issues"&gt;GitHub Issues&lt;/a&gt; | &lt;a href="https://app.zenhub.com/workspaces/authorization-server-5e8f3182b5e8f5841bfc4902/board?repos=248032165"&gt;ZenHub Board&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Security 5.8.0-M2 is released</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/08/16/spring-security-5-8-0-m2-is-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Marcus Hert Da Coregio</name>
-    </author>
-    <id>tag:spring.io,2022-08-16:4882</id>
-    <updated>2022-08-16T16:00:00Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;On behalf of the team and everyone who has contributed, I am pleased to announce that Spring Security &lt;code&gt;5.8.0-M2&lt;/code&gt; is available now.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;This release includes dependency upgrades, bug fixes, and enhancements. Here are a few noteworthy changes:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="ulist"&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="https://github.com/spring-projects/spring-security/issues/11631"&gt;Hash-based Content-Security-Policy for SAML post pages&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href="https://github.com/spring-projects/spring-security/pull/11387"&gt;Customization of redirect strategy&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;See the &lt;a href="https://github.com/spring-projects/spring-security/releases/tag/5.8.0-M2"&gt;5.8.0-M2&lt;/a&gt; release notes for more details.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="http://projects.spring.io/spring-security/"&gt;Project Site&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-security/reference/"&gt;Reference&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-security"&gt;Help&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Introducing Experimental Spring Support for Apache Pulsar</title>
-    <link rel="alternate" href="https://spring.io/blog/2022/08/16/introducing-experimental-spring-support-for-apache-pulsar" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Soby Chacko</name>
-    </author>
-    <id>tag:spring.io,2022-08-16:4881</id>
-    <updated>2022-08-16T14:00:00Z</updated>
-    <content type="html">&lt;p&gt;We are happy to announce that we are incubating a new &lt;a href="https://github.com/spring-projects-experimental/spring-pulsar"&gt;experimental Spring project&lt;/a&gt; for Apache Pulsar. This project aims to provide Spring-friendly APIs, building blocks, and programming models for writing Java applications that interact with Apache Pulsar. &lt;/p&gt;
-&lt;p&gt;&lt;a href="https://pulsar.apache.org/"&gt;Apache Pulsar&lt;/a&gt; is a popular messaging system with a growing ecosystem of developers in the enterprise messaging and streaming space. Here are some main features and advantages of using Apache Pulsar for messaging-based software applications:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Apache Pulsar provides both the traditional queuing semantics of RabbitMQ, ActiveMQ, and others and the log-based structure of Apache Kafka through various subscription models.&lt;/li&gt;
-  &lt;li&gt;The broker in Apache Pulsar is stateless, and the storage is not part of the broker. Instead, it uses another Apache project called Bookkeeper to separate the storage layer from the broker. Because of this fundamental design, scaling up Apache Pulsar brokers is easy.&lt;/li&gt;
-  &lt;li&gt;Apache Pulsar uses distributed logs, called ledgers, leveraged through Bookkeeper. These ledgers distribute across multiple nodes of Bookkeeper.&lt;/li&gt;
-  &lt;li&gt;Another advantage of separating the storage layer (ledgers) from the serving layer (brokers) is that they can scale separately.&lt;/li&gt;
-  &lt;li&gt;Topic partitioning is a feature, not a requirement. You only need to use partitioning if the use case demands it.&lt;/li&gt;
-  &lt;li&gt;Built-in geo-replication mechanisms.&lt;/li&gt;
-  &lt;li&gt;Built-in multi-tenancy capabilities.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Historically, Spring has provided comprehensive support for popular JVM-based messaging systems. &lt;a href="https://docs.spring.io/spring-framework/docs/current/reference/html/integration.html#jms"&gt;JMS&lt;/a&gt; support is part of the core Spring Framework. Spring offers extensive support for AMQP and Kafka through their relevant counterparts in the Spring ecosystem - &lt;a href="https://spring.io/projects/spring-amqp"&gt;Spring AMQP&lt;/a&gt; and &lt;a href="https://spring.io/projects/spring-kafka"&gt;Spring for Apache Kafka&lt;/a&gt;. In addition, various messaging-related support is available in popular Spring projects such as &lt;a href="https://spring.io/projects/spring-integration"&gt;Spring Integration&lt;/a&gt; and &lt;a href="https://spring.io/projects/spring-cloud-stream"&gt;Spring Cloud Stream&lt;/a&gt;. Since Apache Pulsar is growing as a messaging broker, we started experimenting with a new Spring project dedicated to it by using the &lt;a href="https://pulsar.apache.org/docs/client-libraries-java/"&gt;Java client&lt;/a&gt; for Apache Pulsar.&lt;/p&gt;
-&lt;p&gt;From an application developer’s standpoint, Apache Pulsar offers many of the same features that Apache Kafka provides, such as creating a producer to publish, a consumer to consume, and so on. Therefore, in the experimental Spring for Apache Pulsar, we model the design based on the fundamental design principles in Spring for Apache Kafka. You may notice many similarities in Spring for Apache Pulsar if you are familiar with the APIs of Spring for Apache Kafka. With this in mind, here are some current themes and features of Spring for Apache Pulsar:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code&gt;PulsarTemplate&lt;/code&gt; for quickly publishing to Pulsar topics using one-liner send methods.&lt;/li&gt;
-  &lt;li&gt;Provide a &lt;code&gt;PulsarListener&lt;/code&gt; annotation to write high-level Pulsar consumers.&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;MessageListenerContainer&lt;/code&gt; infrastructure to support PulsarListener.&lt;/li&gt;
-  &lt;li&gt;Both record and batch-based &lt;code&gt;PulsarListener&lt;/code&gt; consumption.&lt;/li&gt;
-  &lt;li&gt;Pulsar Producer and Consumer factories&lt;/li&gt;
-  &lt;li&gt;Automatic message acknowledgment by the framework.&lt;/li&gt;
-  &lt;li&gt;Various acknowledgment modes (for example, &lt;strong&gt;MANUAL&lt;/strong&gt;, &lt;strong&gt;RECORD&lt;/strong&gt;, &lt;strong&gt;BATCH&lt;/strong&gt;, and others).&lt;/li&gt;
-  &lt;li&gt;Spring Boot auto-configuration components.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This list of features is not exhaustive by any means, but we hope this list is a good starting point. &lt;/p&gt;
-&lt;p&gt;As we are still on the ground floor of this initiative, we would greatly appreciate any feedback.&lt;br/&gt;Especially if you are a Spring user writing Apache Pulsar-based applications, we would love to hear about your experience using this library.&lt;/p&gt;
-&lt;p&gt;We are planning to add more features and capabilities to this framework soon. We welcome any collaboration from the community in the form of bug reports, feature requests, pull requests, and other types of feedback. &lt;/p&gt;&lt;h2&gt;&lt;a href="#spring-for-apache-pulsar-resources" class="anchor" name="spring-for-apache-pulsar-resources"&gt;&lt;/a&gt;Spring for Apache Pulsar Resources&lt;/h2&gt;
-&lt;p&gt;&lt;a href="https://github.com/spring-projects-experimental/spring-pulsar"&gt;Spring for Apache Pulsar GitHub repository&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://docs.spring.io/spring-pulsar/docs/current-SNAPSHOT/reference/html/"&gt;Reference Documentation&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/spring-projects-experimental/spring-pulsar/tree/main/spring-pulsar-sample-apps"&gt;Sample Applications&lt;/a&gt;&lt;/p&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

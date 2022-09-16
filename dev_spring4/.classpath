@@ -29,5 +29,6 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-dao-2.0.8.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/ojdbc6.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-tx-4.3.30.RELEASE.jar"/>
+	<classpathentry kind="lib" path="C:/git/workspace_spring/dev_spring4/src/main/webapp/WEB-INF/lib/aspectjweaver-1.8.14.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

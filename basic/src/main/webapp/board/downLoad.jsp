@@ -7,7 +7,7 @@
 	String fname = b_file;
 	//out.print("b_file: 8->euc"+b_file);		
 	//out.print("<br>");		
-	String filePath = "D:\\git_20220415\\kh_java20220415\\dev_web\\src\\main\\webapp\\pds"; // 절대경로.	
+	String filePath = "C:\\git\\workspace_spring\\basic\\src\\main\\webapp\\pds"; // 절대경로.	
 	//가져온 파일이름을 객체화 시켜줌. - 파일이 있는 물리적인 경로가 필요함.
 	File file = new File(filePath,b_file.trim());
  	String mimeType = getServletContext().getMimeType(file.toString());

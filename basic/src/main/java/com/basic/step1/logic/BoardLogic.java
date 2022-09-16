@@ -73,8 +73,8 @@ public int boardInsert(Map<String, Object> pMap) {
 	if(pMap.get("bs_file")!=null && pMap.get("bs_file").toString().length()>1) {
 		pMap.put("b_no", b_no);
 		pMap.put("bs_seq", 1);
-//		int result2 = boardSDao.boardSInsert(pMap);
-//		logger.info("result2가 1이면 등록 성공====> "+result2);
+		int result2 = boardDao.boardSInsert(pMap);
+		logger.info("result2가 1이면 등록 성공====> "+result2);
 	}
 	return result;
 }

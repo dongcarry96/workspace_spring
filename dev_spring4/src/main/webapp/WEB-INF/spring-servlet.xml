@@ -3,11 +3,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean id="default-handler-mapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+	<bean name="/di/myCar.sp" class="com.di.Pride" />
 	<bean name="/di/hello.sp" class="com.spring4.mvc.HelloController" />
-	<bean name="/di/myCar.sp" class="com.spring4.mvc.Pride" />
 	<bean name="/di/insaList.sp" class="com.di.ListController">
-	<!-- property의 이름은 setter메소드이름과 반드시(꼭) 같아야 한다. -->
+		<!-- property의 이름은 setter메소드 이름과 반드시 같아야 한다!!!!!!!!!! -->
 		<property name="insaBean">
+		<!-- List<String> list = new ArrayList<>();
+			list.add("Hi!!!");
+			list.add("Have a good time!");
+			list.add("Have a nice day!");
+			와 같은 코드이다.
+		 -->
 			<list>
 				<value>Hi!!!</value>
 				<value>Have a good time!</value>
@@ -16,7 +22,6 @@
 		</property>
 	</bean>
 	<bean name="/di/insaMap.sp" class="com.di.MapController">
-	<!-- property의 이름은 setter메소드이름과 반드시(꼭) 같아야 한다. -->
 		<property name="insaMsg">
 			<map>
 				<entry>
@@ -34,11 +39,13 @@
 			</map>
 		</property>
 	</bean>
+	
 	<bean id="url-mapping"
 		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<props>
 				<prop key="/login.sp">auth-controller</prop>
+				<prop key="/doEmp.sp">emp-controller</prop>
 			</props>
 		</property>
 	</bean>
@@ -57,10 +64,25 @@
 			</props>
 		</property>
 	</bean>
+	
+	<!-- emp작업 -->
+	<bean id="emp-controller" class="com.spring4.tr.EmpController">
+		<property name="methodNameResolver" ref="emp-resolver" />
+		<!-- property의 name은 setter객체주입법 코드의 이름이어야 한다 -->
+		<property name="empLogic" ref="emp-logic" />
+	</bean>
+	<bean id="emp-resolver"
+		class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+		<property name="mappings">
+			<props>
+				<prop key="/doEmp.sp">doEmp</prop>
+			</props>
+		</property>
+	</bean>
+	
 	<!-- ModelAndView 사용시 배포 위치에 대한 선언 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
 </beans>
-

@@ -1,0 +1,141 @@
+﻿
+스프링은 결합도가 낮아야 한다.
+
+FrontMVC ;. 서블릿 (2. ActionServlet , 3.ActionSupport 와 같음) → Dispatcher Servlet으로 연결되어야 한다.
+
+
+ActionForward 가 void 였음 → ModelAndView → Spring
+
+ActionForward - 1. sendRedirect 2. forward _request (세션으로 처리하지 않는다.)
+
+ModelAndView (scope : ) _select일때 - String 문자열이다. → Spring: modal
+
+
+[ step1. ] - void 에서 actionfoward로 바꿈
+
+Action - 인터페이스 ( pojo를 위한 것인지 vs 스프링을 위한 것인지 - 재사용성/결합도낮추기 :impleatments)
+
+
+ActionForward <서블릿>는 getter/setter가 있다.
+
+- false vs true
+
+- path : 출력, 응답
+
+- test 해야할 것 : req, 리턴타입
+
+
+[ step2 . ] - Controller / String 이 생겼다. : 여전히 의존적이다. 결합도가 높다.
+
+인터페이스가 있고, 서블릿이 없다. / 요청객체와 응답객체가 파라미터로 받고 있다_참조에 의한 호출 :
+
+
+페이지 이동하려면 res.sendRedirect 가 필요하다.
+
+이걸 쓰기 싫어요 → "redirect : xxx.jsp"
+
+
+-redirect : select
+
+-foward :
+
+
+ModelAndVIEW
+
+
+Board2Controller 는 인터페이스를 받고 있고,/
+
+
+ActionForward는 getter/setter가 있다.
+
+- false vs true
+
+- path : 출력, 응답
+
+
+[ step3. ] - dispatcher
+
+ActionSupport : 서블릿이다. req,res가 있다. / url을 잘라서 서브스트링하고있다. / 슬래쉬로 나뉘어서 배열로 담고 있다. →
+
+
+   String requestURI = req.getRequestURI();//-> /board2/boardApp.kh?crud=select
+      String contextPath = req.getContextPath();
+      String command = requestURI.substring(contextPath.length()+1);
+      int end = command.lastIndexOf(".");
+      command = command.substring(0,end);
+      String upmu[] = null;
+      upmu = command.split("/");// 업무폴더이름/업무이름.pj
+내용을 입력하세요.
+=> 이부분을 DispatcherServlet을 태워야한다.
+
+
+HandlerMaping은 req와 res를 넘겨주고 필요없음
+
+sendRedirect, forward 싹다 필요없음
+
+
+따라서 ActionSupport는 스프링에서 필요없는 존재이다. 이 아이는 환경설정하는 부분에서의 web.xml안에 들어 있다.
+
+
+-
+
+
+컨트롤 - @Controller @Compoment Scan __이른 인스턴스화 / 로직 - @Service /다오 - @Service or @Repository
+
+로직객체가 컨트롤에 주입이 되어야하고
+
+다오가 로직에 주입되어야하고
+
+sqlsessionTemplate은 다오에 주입되어야한다.
+
+
+컨트롤에서는 메서드를 호출한다. 그래서 로직과 다오는 그대로 유지된다.
+
+
+
+
+스프링 톰캣안에는
+
+1. 코어
+
+2. beans → BeanFactory
+
+3. context → Application Context
+
+
+VO를 쓴이유 (getter/setter) : 한 클래스에는 여러개의 변수와
+
+
+F/W → 독립성, 결합도 낮추기, 단위테스트 가능하게
+
+
+Spring + 리액트 : UI 템플릿을 생각할 수 있는 역할 / SPG(싱글페이지어플리케이션)
+
+→ 스프링이 리액트에게 DataSet(집합)을 넘겨줘야 한다.
+
+→ 리액트는 mime타임, json 같은 역할이여야 한다.
+
+
+JTable / DefaultTableModel : DataSet
+
+
+package com.basic.step1.logic;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.basic.step1.dao.BoardDao;
+
+public class BoardLogic {
+   //@Autowired(required=false)
+   private BoardDao boardDao = null;
+   
+   
+   // setter 객체주입법 코드
+   public void setBoardDao(BoardDao boardDao) {
+      this.boardDao = boardDao;
+   }
+}
+내용을 입력하세요.
+=> @Autowird 대신에서 아래의 setter 객체주입법 코드를 대신해서 사용해왔다.
+
+﻿
