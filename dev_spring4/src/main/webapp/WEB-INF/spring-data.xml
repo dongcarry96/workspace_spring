@@ -30,6 +30,9 @@
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
 	<!-- ====================== [[ Spring & MyBatis  끝 ]] ====================== -->
+	<bean id="board-dao" class="com.spring4.mvc.BoardDao">
+		<property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
+	</bean>
 	<bean id="auth-dao" class="com.spring4.mvc.AuthDao">
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
 	</bean>

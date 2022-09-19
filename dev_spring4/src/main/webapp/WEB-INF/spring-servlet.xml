@@ -2,18 +2,17 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-	<bean id="default-handler-mapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+	<bean id="default-handler-mapping"
+		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
 	<bean name="/di/myCar.sp" class="com.di.Pride" />
 	<bean name="/di/hello.sp" class="com.spring4.mvc.HelloController" />
 	<bean name="/di/insaList.sp" class="com.di.ListController">
 		<!-- property의 이름은 setter메소드 이름과 반드시 같아야 한다!!!!!!!!!! -->
 		<property name="insaBean">
-		<!-- List<String> list = new ArrayList<>();
-			list.add("Hi!!!");
-			list.add("Have a good time!");
-			list.add("Have a nice day!");
-			와 같은 코드이다.
-		 -->
+			<!-- List<String> list = new ArrayList<>();
+				 list.add("Hi!!!");
+				 list.add("Have a good time!"); list.add("Have a nice day!");
+				 와 같은 코드이다. -->
 			<list>
 				<value>Hi!!!</value>
 				<value>Have a good time!</value>
@@ -25,31 +24,62 @@
 		<property name="insaMsg">
 			<map>
 				<entry>
-					<key><value>one</value></key>
+					<key>
+						<value>one</value>
+					</key>
 					<value>안녕!</value>
 				</entry>
 				<entry>
-					<key><value>two</value></key>
+					<key>
+						<value>two</value>
+					</key>
 					<value>좋은아침입니다</value>
 				</entry>
 				<entry>
-					<key><value>three</value></key>
+					<key>
+						<value>three</value>
+					</key>
 					<value>굿밤</value>
 				</entry>
 			</map>
 		</property>
 	</bean>
+
+   <bean id="url-mapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+         <property name="mappings">
+            <props>
+               <prop key="/login.sp">auth-controller</prop>
+               <prop key="/doEmp.sp">emp-controller</prop>
+               <prop key="/board/jsonBoardList.sp">board-controller</prop>
+               <prop key="/board/boardList.sp">board-controller</prop>
+               <prop key="/board/boardDetail.sp">board-controller</prop>
+               <prop key="/board/boardInsert.sp">board-controller</prop>
+               <prop key="/board/boardUpdate.sp">board-controller</prop>
+               <prop key="/board/boardDelete.sp">board-controller</prop>
+            </props>
+         </property>
+   </bean>
+
+
+	<bean id="board-controller" class="com.spring4.mvc.BoardController">
+		<property name="methodNameResolver" ref="board-resolver" />
+		<property name="boardLogic" ref="board-logic" />
+	</bean>
 	
-	<bean id="url-mapping"
-		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+	<bean id="board-resolver"
+		class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
 		<property name="mappings">
 			<props>
-				<prop key="/login.sp">auth-controller</prop>
-				<prop key="/doEmp.sp">emp-controller</prop>
+				<prop key="/board/jsonBoardList.sp">jsonBoardList</prop>
+				<prop key="/board/boardList.sp">boardList</prop>
+				<prop key="/board/boardDetail.sp">boardDetail</prop>
+				<prop key="/board/boardInsert.sp">boardInsert</prop>
+				<prop key="/board/boardUpdate.sp">boardUpdate</prop>
+				<prop key="/board/boardDelete.sp">boardDelete</prop>
 			</props>
 		</property>
 	</bean>
-	
+
 	<!-- xml에서 bean태그에 클래스 선언함: AuthController auth-controller = null;(선언) -->
 	<bean id="auth-controller" class="com.spring4.mvc.AuthController">
 		<property name="methodNameResolver" ref="auth-resolver" />
@@ -64,7 +94,7 @@
 			</props>
 		</property>
 	</bean>
-	
+
 	<!-- emp작업 -->
 	<bean id="emp-controller" class="com.spring4.tr.EmpController">
 		<property name="methodNameResolver" ref="emp-resolver" />
@@ -79,9 +109,10 @@
 			</props>
 		</property>
 	</bean>
-	
+
 	<!-- ModelAndView 사용시 배포 위치에 대한 선언 -->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>

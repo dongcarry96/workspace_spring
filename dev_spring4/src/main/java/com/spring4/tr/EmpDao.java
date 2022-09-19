@@ -15,6 +15,6 @@ public class EmpDao {
 	// spring에서 제공하는 SQLEx
 	public void empInsert(Map<String, Object> emap) throws DataAccessException {
 		logger.info(emap);
-		sqlSessionTemplate.update("deptInsert", emap);
+		sqlSessionTemplate.update("empInsert", emap);
 	}
 }

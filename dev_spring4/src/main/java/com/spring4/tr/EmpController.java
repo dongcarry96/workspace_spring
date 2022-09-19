@@ -14,8 +14,9 @@ public class EmpController extends MultiActionController {
 	}
 
 	public String doEmp(HttpServletRequest req, HttpServletResponse res) {
+		logger.info("dev_spring : empController 호출 성공");
 		int result = 0;
-		result = empLogic.doEmp();
+		result = empLogic.cudEmp();
 		return "redirect:empList.sp";
 	}
 }
