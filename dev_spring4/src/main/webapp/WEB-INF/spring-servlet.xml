@@ -109,7 +109,6 @@
 			</props>
 		</property>
 	</bean>
-
 	<!-- ModelAndView 사용시 배포 위치에 대한 선언 -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

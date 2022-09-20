@@ -10,10 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class BoardDao {
-	Logger logger = LoggerFactory.getLogger(BoardDao.class);
-	@Autowired(required = false)
+	Logger logger = LoggerFactory.getLogger(BoardDao.class);	
+	@Autowired(required=false)
 	private SqlSessionTemplate sqlSessionTemplate = null;
 
 	public List<Map<String, Object>> boardList(Map<String, Object> pMap) {
@@ -21,33 +22,35 @@ public class BoardDao {
 		List<Map<String, Object>> boardList = null;
 		try {
 			boardList = sqlSessionTemplate.selectList("boardList", pMap);
+			// insert here
 			logger.info(boardList.toString());
 		} catch (DataAccessException e) {
-			logger.info("Exception : " + e.toString());
-		}
+			logger.info("Exception : "+e.toString());
+		} 
 		return boardList;
 	}
 
 	public int getBNo() {
-		logger.info("getBNo호출 성공");
+		logger.info("getBNo 호출 성공");
 		int result = 0;
 		try {
 			result = sqlSessionTemplate.selectOne("getBNo");
-			logger.info(result + "");
+			// insert here
+			logger.info(result+"");
 		} catch (Exception e) {
-			logger.info("Exception : " + e.toString());
-		}
+			logger.info("Exception : "+e.toString());
+		} 
 		return result;
 	}
 
 	public void bStepUpdate(Map<String, Object> pMap) {
 		int result = 0;
 		try {
-			result = sqlSessionTemplate.update("bStepUpdate", pMap);
-			logger.info("result: " + result);
+			result = sqlSessionTemplate.update("bStepUpdate",pMap);
+			logger.info("result : "+result);
 		} catch (Exception e) {
-			logger.info("Exception : " + e.toString());
-		}
+			logger.info("Exception : "+e.toString());
+		} 	
 	}
 
 	public int getBGroup() {
@@ -55,10 +58,11 @@ public class BoardDao {
 		int result = 0;
 		try {
 			result = sqlSessionTemplate.selectOne("getBGroup");
+			// insert here
 			logger.info(result+"");
 		} catch (Exception e) {
-			logger.info("Exception : " + e.toString());
-		}
+			logger.info("Exception : "+e.toString());
+		} 
 		return result;
 	}
 
@@ -66,10 +70,10 @@ public class BoardDao {
 		int result = 0;
 		try {
 			result = sqlSessionTemplate.update("boardMInsert",pMap);
-			logger.info("result: "+ result);
+			logger.info("result : "+result);
 		} catch (Exception e) {
-			logger.info("Exception : " + e.toString());
-		}
+			logger.info("Exception : "+e.toString());
+		} 	
 		return result;
 	}
 
@@ -77,10 +81,10 @@ public class BoardDao {
 		int result = 0;
 		try {
 			result = sqlSessionTemplate.update("boardMUpdate",pMap);
-			logger.info("result: "+ result);
+			logger.info("result : "+result);
 		} catch (Exception e) {
-			logger.info("Exception : " + e.toString());
-		}
+			logger.info("Exception : "+e.toString());
+		} 	
 		return result;
 	}
 
@@ -88,34 +92,21 @@ public class BoardDao {
 		int result = 0;
 		try {
 			result = sqlSessionTemplate.delete("boardMDelete",pMap);
-			logger.info("result: "+ result);
+			logger.info("result : "+result);
 		} catch (Exception e) {
-			logger.info("Exception : " + e.toString());
-		}
+			logger.info("Exception : "+e.toString());
+		}	
 		return result;
 	}
 
 	public int hitCount(Map<String, Object> pMap) {
 		int result = 0;
 		try {
-			// 여기서 "hitCount"는 board.xml에서의 아이디와 연결
 			result = sqlSessionTemplate.update("hitCount",pMap);
-			logger.info("result: "+ result);
+			logger.info("result : "+result);
 		} catch (Exception e) {
-			logger.info("Exception : " + e.toString());
-		}
-		return result;
-	}
-	public int boardInsert(Map<String, Object> pMap) {
-		int result = 0;
-		try {
-			//현재는 첨부파일이 한개인 경우라서 상수처리함
-			// TODO - 멀티처리를 위해서는 무엇을 해야 할까?
-			result = sqlSessionTemplate.update("boardMInsert",pMap);
-			logger.info("result: "+ result);
-		} catch (Exception e) {
-			logger.info("Exception : " + e.toString());
-		}
+			logger.info("Exception : "+e.toString());
+		}	
 		return result;
 	}
 
@@ -123,14 +114,14 @@ public class BoardDao {
 		int result = 0;
 		try {
 			//현재는 첨부파일이 한개인 경우라서 상수처리함
-			// TODO - 멀티처리를 위해서는 무엇을 해야 할까?
+			//TODO - 멀티처리를 위해서는 무엇을 해야 할까?
+			pMap.put("bs_seq", 1);
 			result = sqlSessionTemplate.update("boardSInsert",pMap);
-			logger.info("result: "+ result);
+			logger.info("result : "+result);
 		} catch (Exception e) {
-			logger.info("Exception : " + e.toString());
-		}
+			logger.info("Exception : "+e.toString());
+		} 	
 		return result;
 	}
-
 	
-	}
+}

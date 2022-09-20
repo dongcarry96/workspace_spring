@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
-<%@ page import="java.io.*,java.net.*"%>
+    pageEncoding="utf-8"%>
+<%@ page import="java.io.*,java.net.*" %>    
 <%
 //사용자 화면으로 부터 파일명을 받아서 저장함.
 	String b_file = request.getParameter("bs_file");
 	String fname = b_file;
 	//out.print("b_file: 8->euc"+b_file);		
 	//out.print("<br>");		
-	String filePath = "C:\\git\\workspace_spring\\basic\\src\\main\\webapp\\pds"; // 절대경로.	
+	String filePath = "C:\git\workspace_spring\basic\src\main\webapp\pds"; // 절대경로.	
 	//가져온 파일이름을 객체화 시켜줌. - 파일이 있는 물리적인 경로가 필요함.
 	File file = new File(filePath,b_file.trim());
  	String mimeType = getServletContext().getMimeType(file.toString());
@@ -15,8 +15,8 @@
  	//마임타입이 부재인 경우 브라우저가 모르는 마임타입으로 변경하여 줌.
 	if(mimeType == null){
 		//그래서 다운로드 화면이 처리되도록 강제로 유도해줌.
-		// 아래코드는 마임타입에 따라 다운로드 되지 않고 브라우저에서 페이지를 처리하는 경우 방지
-		// 알 수 없는 마임타입은 브라우저가 모두 다운로드 처리한다
+		//아래코드는 마임타입에 따라 다운로드 되지 않고 브라우저에서 페이지를 처리하는 경우 방지
+		//알 수 없는 마임타입은 브라우저가 모두 다운로드 처리한다.
 		response.setContentType("application/octet-stream");
 	}
 	String downName = null;
@@ -54,7 +54,7 @@
 		if(sos != null) sos.close();
 		if(fis != null) fis.close();
 	}
-%>
+%>  
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

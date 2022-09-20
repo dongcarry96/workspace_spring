@@ -2,25 +2,24 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, com.util.PageBar" %>    
 <%
-// jsp에서 자바코드(스크립틀릿)와 html코드의 작성위치는 문제가 되지 않는다.
-// 왜냐하면 어차피 jsp는 서버에서 실행되고 그 결과가 text로 출력되는 것이므로
+// jsp에서 자바코드(스크립틀릿)와 html코드의 작성 위치는 문제가 되지 않는다.
+// 왜냐하면 어차피 jsp는 서버에서 실행되고 그 결과가 text로 출력되는 것이므로 
 // html과 처리 시점이 완전 다르니까...
 	boolean isOk = false;
 	if(request.getParameter("isOk")!=null){
 		isOk = Boolean.parseBoolean(request.getParameter("isOk"));
 	}
-	// 유지 -> DB 경유 -> 서블릿
 	List<Map<String,Object>> boardList = 
 			(List<Map<String,Object>>)request.getAttribute("boardList");
 	int size = 0;
 	if(boardList!=null){
 		size = boardList.size();
-	}
-	// 한 페이지에 출력될 로우의 수를 담는다
+	}		
+	// 한 페이지에 출력될 로우의 수를 담음
 	int numPerPage = 10;
-	// 현재 내가 바라보는 페이지 번호 담는 변수
+	// 내가 바라보는 페이지 번호 담음
 	int nowPage = 0;
-	if(request.getParameter("nowPage") != null){
+	if(request.getParameter("nowPage")!=null){
 		nowPage = Integer.parseInt(request.getParameter("nowPage"));
 	}
 %>    
@@ -32,7 +31,7 @@
 <%@ include file="../common/easyui_common.jsp" %>
 <script type="text/javascript">
 	let g_no=0;//그리드에서 선택이 바뀔때 마다 변경된 값이 저장됨.
-	let tb_value; // 사용자가 입력한 문자열 담기
+	let tb_value;//사용자가 입력한 문자열 담기
 	let isOk = false;
 	function dlgIns_save(){
 		//폼 전송 처리함.
@@ -41,20 +40,17 @@
 	function dlgIns_close(){
 		$("#dlg_boardIns").dialog('close');
 	}
-	
 	function getBoardList(){
-		//alert("getBoardList호출");   
-		// 사용자가 선택한 콤보박스에 value가 담김 - b_title, or b_content or b_writer
+		//alert("getBoardList호출");
+		//사용자가 선택한 콤보박스에 value가 담김 - b_title, or b_content or b_writer
 		cb_value = user_combo;
-		tb_value = $('#tb_search').val(); // 사용자가 입력한 조건 검색 문자열
-		console.log("콤보박스 값: "+cb_value+", 사용자가 입력한 키워드: "+tb_value);
+		tb_value = $("#tb_search").val();//사용자가 입력한 조건 검색 문자열
+		console.log("콤보박스 값: "+ cb_value+", 사용자가 입력한 키워드: "+tb_value);
 		location.href = "boardList.sp4?cb_search="+cb_value+"&tb_search="+tb_value+"&b_date="+v_date;
 	}	
 	function boardDetail(bm_no){
-		
 	}
     function fileDown(fname){
-    	//쿼리스트링은 downLoad.jsp에서 6번줄에 request.getParameter("bs_file");과 일치해야함
 		location.href="downLoad.jsp?bs_file="+fname;
     }	
 </script>
@@ -62,8 +58,8 @@
 <body>
 <script type="text/javascript">
 	let user_combo="bm_title";//제목|내용|작성자
-	// 전변 - javascript에서는 선언만 하고 선택을 하지 않았거나 값이 할당되지 않으면
-	// 그냥 null비교만 해서는 안된다
+	//전변 - javascript에서는 선언만 하고 선택을 하지 않았거나 값이 할당되지 않으면 
+	//그냥 null비교만 해서는 안된다.
 	let v_date;//사용자가 선택한 날짜 정보 담기
 //기본 날짜포맷을 재정의
 	$.fn.datebox.defaults.formatter = function(date){
@@ -89,34 +85,34 @@
 			},
 			onDblClickCell: function(index, field, value){
 				if("B_TITLE" == field){
-					location.href = "./boardDetail.sp4?b_no="+g_no;
+					location.href="./boardDetail.sp4?b_no="+g_no;
 					g_no = 0;
-					$("#dg_board").datagrid('clearSelections');
+					$("#dg_board").datagrid('clearSelections')
 				}
 			}
 		});
 	
 		//등록 날짜 정보를 선택했을 때
 		$('#db_date').datebox({
-			// 왜 undefinded 이었나?
+			//왜? undefinded이었나?
 			onSelect: function(date){
 				//alert(date.getFullYear()+":"+(date.getMonth()+1)+":"+date.getDate());
 				const y = date.getFullYear();
 				const m = date.getMonth()+1;
 				const d = date.getDate();
 				v_date = y+"-"+(m<10? "0"+m:m)+"-"+(d<10? "0"+d:d);
-				//console.log("사용자가 선택한 날짜: "+v_date);
+				//console.log("사용자가 선택한 날짜 ==> "+v_date);
 			}
 		});
 		
 		//검색 조건 콤보에 변경이 일어났을 때
 		$('#cb_search').combobox({
-			onChange: function(){
-			user_combo = $("#cb_search").combobox('getValue'); // b_title or b_content or b_writer
-			console.log(user_combo);				
+			onChange:function(){
+				user_combo = $("#cb_search").combobox('getValue');//b_title or b_content or b_writer
+				console.log(user_combo)
 			}
 		});
-		
+
 		$('#tb_search').textbox({
 			icons: [{
 				iconCls:'icon-search',
@@ -124,13 +120,12 @@
 					alert("검색");
 					//$(e.data.target).textbox('setValue', 'Something added!');
 					$("#dg_board").datagrid({
-						
+
 					});
 				}
 			}]
 		});
-		
-	    
+
 	    /*===================== CRUD버튼 시작 ====================*/	    
 		//조회버튼 클릭했을 때
 	    $('#crudBtnSel').bind('click', function(){
@@ -146,8 +141,8 @@
 		$('#crudBtnDel').bind('click', function(){
 	        alert('삭제 버튼');
 	    });			
-	    /*===================== CRUD버튼 끝 ====================*/	  
-	    
+	    /*===================== CRUD버튼 끝 ====================*/	    
+
 	});///////////////// end of ready
 </script>
 <center>
@@ -182,45 +177,45 @@
 %>	      
         	<tr>
         		<td><%=rMap.get("B_NO")%></td>
+
         		<td>
-<!-- 너 댓글이니? -->        
+<!-- 너 댓글이니? -->     
 <%
-	//스크립틀릿 안에 작성한 코드는 라이프 사이클에서 service()에 들어간다
-	// 그러니까 메소드 선언 안됨
-	// path는 common/easyui_common.jsp에서 임포트 해옴
+//스크립틀릿 안에 작성한 코드는 라이프 사이클에서 service()들어간다
+//그러니까 메소드 선언 안됨
 	String imgPath = path+"..\\images\\";
-	if(Integer.parseInt(rMap.get("B_POS").toString()) > 0) {
-		for(int j=0; j<Integer.parseInt(rMap.get("B_POS").toString());j++) {
-			out.print("&nbsp;&nbsp;");
-		}////end of for
-%>
-	<img src="<%=imgPath %>reply.gif"/>
+	if(Integer.parseInt(rMap.get("B_POS").toString()) > 0){
+		for(int j=0;j<Integer.parseInt(rMap.get("B_POS").toString());j++){
+			out.print("&nbsp;&nbsp;&nbsp;");
+		}////////end of for	
+%>   		
+	<img src="<%=imgPath %>reply.gif"/>   		
 <%
-	
-	} // 댓글이니까 댓글아이콘 추가해줘! /////end of if
-%>
+	}//너 댓글이니까.... 댓글 아이콘 추가
+%>   		
 <a href="javascript:boardDetail('<%=rMap.get("B_NO")%>')" style="text-decoration:none;color:#000000">        		
         		<%=rMap.get("B_TITLE")%>
 </a>        		
         		</td>
+
         		<td><%=rMap.get("B_WRITER")%></td>
         		<td><%=rMap.get("B_DATE")%></td>
         		<td>
-<!-- 조건에 따라서 처리하도록해주기 파일이 없을경우/있을경우 -->
 <%
-	if(rMap.get("BS_FILE")!=null) { // null이 아닐경우 a태그 걸어주세요
-%>
+	if(rMap.get("BS_FILE")!=null){
+%>        		
         		<a href="javascript:fileDown('<%=rMap.get("BS_FILE") %>')">
         		<%=rMap.get("BS_FILE")%>
         		</a>
 <%
-	} /////end of if
-	else {
-%>        		
+	}
+	else{
+%>
         		<%=rMap.get("BS_FILE")%>
 <%
-	}//////end of else
+	}
 %>
+        		
         		</td>
         		<td><%=rMap.get("B_HIT")%></td>
         	</tr>
@@ -245,8 +240,7 @@
         </select>
         <input id="tb_search" name="tb_search" class="easyui-textbox" style="width:320px">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                작성일: <input id="db_date" class="easyui-datebox" name="b_date" style="width:110px">
-<!-- 태그내에서 속성(width, align, href)이나  -->   
+                작성일: <input id="db_date" class="easyui-datebox" name="bm_date" style="width:110px">
 	<!-- 버튼 추가 화면 시작 --> 
 	    <div id="ft" style="padding:2px 5px;">
 	        <a id="crudBtnSel" href="#" class="easyui-linkbutton" iconCls="icon-search" plain="true">조회</a>
@@ -264,7 +258,7 @@
 	String pagePath = "boardList.sp4";
 	PageBar pb = new PageBar(numPerPage, size, nowPage, pagePath);
 	out.print(pb.getPageBar());
-%>		
+%>	
 	</div>
 	
 <!-- 
@@ -293,8 +287,8 @@
 %>
 <!-- 글입력 화면 추가 시작 -->
     <div id="dlg_boardIns" footer="#tb_boardIns" class="easyui-dialog" title="글쓰기" data-options="modal:true,closed:true" style="width:600px;height:400px;padding:10px">
-    	<form id="f_boardIns" method="post" enctype="multipart/form-data" action="./boardInsert.sp4">
-       	<!-- <form id="f_boardIns" method="get" action="./boardInsert.sp4"> -->
+        <form id="f_boardIns" method="post" enctype="multipart/form-data" action="./boardInsert.sp4">
+        <!-- <form id="f_boardIns" method="get" action="./boardInsert.sp4"> -->
 	    <input type="hidden" id="b_no" name="b_no" value="0">
 	    <input type="hidden" id="b_group" name="b_group" value="0">
 	    <input type="hidden" id="b_pos" name="b_pos" value="0">
