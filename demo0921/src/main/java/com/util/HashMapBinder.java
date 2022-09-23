@@ -29,7 +29,7 @@ public class HashMapBinder {
 		while(em.hasMoreElements()) {
 			//key값 꺼내기
 			String key = em.nextElement();//b_title, b_writer, b_content, b_pw 등
-			pMap.put(key, HangulConversion.toUTF(mreq.getParameter(key)));
+			pMap.put(key, mreq.getParameter(key));
 		}
 		logger.info(pMap);
 	}//////////end of bind

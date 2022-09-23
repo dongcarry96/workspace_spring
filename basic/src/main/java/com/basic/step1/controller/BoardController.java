@@ -26,11 +26,11 @@ import com.google.gson.Gson;
 import com.util.HangulConversion;
 import com.util.HashMapBinder;
 
-@Controller
+@Controller //어떤 역
 @RequestMapping("/board/*")
 public class BoardController {
 	Logger logger = LoggerFactory.getLogger(BoardController.class);	
-	@Autowired(required=false)
+	@Autowired(required=true)
 	private BoardLogic boardLogic = null;
 	private final String filePath = "C:\\git\\workspace_spring\\basic\\src\\main\\webapp\\pds"; // 파일이 저장될 위치
 	//////////////////////////[@ResponseBody 시작]///////////////////////
@@ -61,6 +61,7 @@ public class BoardController {
 		logger.info("testParam 호출 성공"+mem_id);
 		return "redirect:/test/testList.jsp";
 	}
+	
 	//////////////////////////[@ResponseBody 끝]///////////////////////
 	
 	/*

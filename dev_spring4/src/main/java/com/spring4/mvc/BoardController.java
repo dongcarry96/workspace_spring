@@ -46,7 +46,7 @@ public class BoardController extends MultiActionController {
    public String boardDetail(HttpServletRequest req, HttpServletResponse res) {
       logger.info("boardDetail호출 성공");
       Map<String,Object> pMap = new HashMap<>();
-      HashMapBinder hmb = new HashMapBinder(req);
+      HashMapBinder hmb = new HashMapBinder(req); //왜? 사용?
       hmb.bind(pMap);
       List<Map<String,Object>> boardList = null;
       boardList = boardLogic.boardDetail(pMap);
