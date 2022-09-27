@@ -4,9 +4,9 @@
 <%@ page import="com.google.gson.Gson"%>
 <%
 //요청이 URL이 바뀌지 않아요 - forward
-	List<Map<String,Object>> boardList = 
-	(List<Map<String,Object>>)request.getAttribute("boardList");
+	List<Map<String,Object>> sendMemoList = 
+	(List<Map<String,Object>>)request.getAttribute("sendMemoList");
 	Gson g = new Gson();
-	String imsi = g.toJson(boardList);
+	String imsi = g.toJson(sendMemoList);
 	out.print(imsi);
 %>    

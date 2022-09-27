@@ -36,7 +36,7 @@
 //javascript만으로 처리
 //html+javascript혼합 처리(권장-리액트)
 	function boardList(){
-		location.href="./boardList";
+		location.href="./boardList.sp4";
 	}
 	function dlgIns_save(){
 		$("#f_boardIns").submit();

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.*, com.util.PageBar" %>    
+<%@ page import="java.util.*, com.util.PageBar, com.example.demo.vo.BoardMasterVO" %>    
 <%
 // jsp에서 자바코드(스크립틀릿)와 html코드의 작성 위치는 문제가 되지 않는다.
 // 왜냐하면 어차피 jsp는 서버에서 실행되고 그 결과가 text로 출력되는 것이므로 
@@ -9,8 +9,8 @@
 	if(request.getParameter("isOk")!=null){
 		isOk = Boolean.parseBoolean(request.getParameter("isOk"));
 	}
-	List<Map<String,Object>> boardList = 
-			(List<Map<String,Object>>)request.getAttribute("boardList");
+	List<BoardMasterVO> boardList = 
+			(List<BoardMasterVO>)request.getAttribute("boardList");
 	int size = 0;
 	if(boardList!=null){
 		size = boardList.size();
@@ -27,8 +27,8 @@
 <html>
 <head>
 <!-- <meta charset="UTF-8"> 이것때문에 한글깨짐.-->
-<title>스프링기반 계층형 게시판 구현[WEB-INF]</title>
-<%@ include file="/common/easyui_common.jsp" %>
+<title>MVC기반의 계층형 게시판 구현하기</title>
+<%@ include file="../common/easyui_common.jsp" %>
 <script type="text/javascript">
 	let g_no=0;//그리드에서 선택이 바뀔때 마다 변경된 값이 저장됨.
 	let tb_value;//사용자가 입력한 문자열 담기
@@ -85,7 +85,7 @@
 			},
 			onDblClickCell: function(index, field, value){
 				if("B_TITLE" == field){
-					location.href="./boardDetail?b_no="+g_no;
+					location.href="./boardDetail.sp4?b_no="+g_no;
 					g_no = 0;
 					$("#dg_board").datagrid('clearSelections')
 				}
@@ -173,10 +173,10 @@
 		//for(int i=0;i<size;i++){
 		for(int i=nowPage*numPerPage;i<(nowPage*numPerPage)+numPerPage;i++){
 			if(size == i) break;
-			Map<String,Object> rMap = boardList.get(i);
+			BoardMasterVO bmVO = boardList.get(i);
 %>	      
         	<tr>
-        		<td><%=rMap.get("B_NO")%></td>
+        		<td><%=bmVO.getB_no()%></td>
 
         		<td>
 <!-- 너 댓글이니? -->     
@@ -184,8 +184,8 @@
 //스크립틀릿 안에 작성한 코드는 라이프 사이클에서 service()들어간다
 //그러니까 메소드 선언 안됨
 	String imgPath = path+"..\\images\\";
-	if(Integer.parseInt(rMap.get("B_POS").toString()) > 0){
-		for(int j=0;j<Integer.parseInt(rMap.get("B_POS").toString());j++){
+	if(bmVO.getB_pos() > 0){
+		for(int j=0;j<bmVO.getB_pos();j++){
 			out.print("&nbsp;&nbsp;&nbsp;");
 		}////////end of for	
 %>   		
@@ -193,31 +193,31 @@
 <%
 	}//너 댓글이니까.... 댓글 아이콘 추가
 %>   		
-<a href="javascript:boardDetail('<%=rMap.get("B_NO")%>')" style="text-decoration:none;color:#000000">        		
-        		<%=rMap.get("B_TITLE")%>
+<a href="javascript:boardDetail('<%=bmVO.getB_no()%>')" style="text-decoration:none;color:#000000">        		
+        		<%=bmVO.getB_title()%>
 </a>        		
         		</td>
 
-        		<td><%=rMap.get("B_WRITER")%></td>
-        		<td><%=rMap.get("B_DATE")%></td>
+        		<td><%=bmVO.getB_writer()%></td>
+        		<td><%=bmVO.getB_date()%></td>
         		<td>
 <%
-	if(rMap.get("BS_FILE")!=null){
+	if(bmVO.getBs_file()!=null){
 %>        		
-        		<a href="javascript:fileDown('<%=rMap.get("BS_FILE") %>')">
-        		<%=rMap.get("BS_FILE")%>
+        		<a href="javascript:fileDown('<%=bmVO.getBs_file() %>')">
+        		<%=bmVO.getBs_file()%>
         		</a>
 <%
 	}
 	else{
 %>
-        		<%=rMap.get("BS_FILE")%>
+        		<%=bmVO.getBs_file()%>
 <%
 	}
 %>
         		
         		</td>
-        		<td><%=rMap.get("B_HIT")%></td>
+        		<td><%=bmVO.getB_hit()%></td>
         	</tr>
 <%
 		}// end of for
@@ -255,7 +255,7 @@
 <!-- 페이지 네이션 추가 시작 -->
 	<div style="display:table-cell;vertical-align:middle; width:800px; background:#efefef; height:30; border:1px solid #ccc;">
 <%
-	String pagePath = "boardList";
+	String pagePath = "boardList.sp4";
 	PageBar pb = new PageBar(numPerPage, size, nowPage, pagePath);
 	out.print(pb.getPageBar());
 %>	
@@ -287,8 +287,8 @@
 %>
 <!-- 글입력 화면 추가 시작 -->
     <div id="dlg_boardIns" footer="#tb_boardIns" class="easyui-dialog" title="글쓰기" data-options="modal:true,closed:true" style="width:600px;height:400px;padding:10px">
-        <form id="f_boardIns" method="post" enctype="multipart/form-data" action="./boardInsert">
-        <!-- <form id="f_boardIns" method="get" action="./boardInsert"> -->
+        <form id="f_boardIns" method="post" enctype="multipart/form-data" action="./boardInsert.sp4">
+        <!-- <form id="f_boardIns" method="get" action="./boardInsert.sp4"> -->
 	    <input type="hidden" id="b_no" name="b_no" value="0">
 	    <input type="hidden" id="b_group" name="b_group" value="0">
 	    <input type="hidden" id="b_pos" name="b_pos" value="0">
